@@ -344,7 +344,8 @@ def genotype_sv(svcall, config, phase):
 
     # Count inline events only once per read, but split events as individual alignments, as in coverage calculation
     leads = svcall.postprocess.cluster.leads
-    support = rescale_support(svcall, config)
+    support = svcall.support
+    # support = rescale_support(svcall, config)
 
     if svcall.svtype == "INS":
         coverage_list = [svcall.coverage_center]
